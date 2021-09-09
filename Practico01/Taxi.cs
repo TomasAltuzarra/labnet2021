@@ -8,7 +8,7 @@ namespace Practico01
 {
     public class Taxi : TransportePublico
     {
-        public Taxi (int cantidadPasajeros):base(cantidadPasajeros)
+        public Taxi (int cantidadPasajeros, int id):base(cantidadPasajeros, id)
         {
 
         }

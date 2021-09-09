@@ -8,9 +8,9 @@ namespace Practico01
 {
     public class Omnibus : TransportePublico
     {
-        public Omnibus (int cantidadPasajeros) : base(cantidadPasajeros)
+        public Omnibus (int cantidadPasajeros, int id) : base(cantidadPasajeros,id)
         {
-            //this.cantidadPasajeros = cantidadPasajeros;
+
         }
         public override void Avanzar()
         {

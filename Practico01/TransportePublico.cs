@@ -8,11 +8,13 @@ namespace Practico01
 {
     public abstract class TransportePublico
     {
+        public int id { get; set; }
         public int cantidadPasajeros { get; set; }
 
-        public TransportePublico (int cantidadPasajeros)
+        public TransportePublico (int cantidadPasajeros, int id)
         {
             this.cantidadPasajeros = cantidadPasajeros;
+            this.id = id;
         }
 
         public abstract void Avanzar();
