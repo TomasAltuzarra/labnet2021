@@ -9,7 +9,6 @@ namespace Practico01
     class Program
     {
         static void Main(string[] args) =>
-            //Console.WriteLine("Inicio");
             new Program().Menu();
 
         public void Menu()
@@ -77,7 +76,20 @@ namespace Practico01
                         Console.Clear();
                         break;
                     case 0:
-                        Console.WriteLine("Gracias vuelva prontos (lista)");
+                        Console.WriteLine("Listado de transportes registrados en la sesion actual: \n");
+                        Console.WriteLine("Omnibuses: ");
+                        foreach (Omnibus cole in colectivos)
+                        {
+                            Console.Write("N:0{0} :", cole.id);
+                            Console.WriteLine(" {0} pasajeros", cole.cantidadPasajeros);
+                        }
+                        Console.WriteLine("Taxis: ");
+                        foreach (Taxi tacho in taxis)
+                        {
+                            Console.Write("N:0{0} :", tacho.id);
+                            Console.WriteLine(" {0} pasajeros", tacho.cantidadPasajeros);
+                        }
+                        Console.WriteLine("\nGracias vuelva prontos");
                         break;
                 }
             } while (opc != 0);
