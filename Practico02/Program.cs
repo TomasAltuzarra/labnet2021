@@ -45,8 +45,8 @@ namespace Practico02
                     }
                     catch (FormatException)
                     {
-                        Console.WriteLine("\nLa opcion ingresada debe ser un número entero\n");
-                        Console.WriteLine("Presione Entrer para continuar");
+                        Console.WriteLine("\nLa opcion ingresada debe ser un número entero");
+                        Console.Write("Presione Entrer para continuar");
                         Console.ReadKey();
                         Console.Clear();
                     }
@@ -72,7 +72,7 @@ namespace Practico02
                         break;
                 }
 
-                Console.WriteLine("\n(presione Enter para continuar)");
+                Console.WriteLine("(presione Enter para continuar)");
                 Console.ReadKey();
                 Console.Clear();
 
@@ -84,7 +84,7 @@ namespace Practico02
         static void Inciso1()
         {
             int div;
-            float resultado = 0;
+            double resultado = 0;
             bool operacion = true;
             Console.Write("Ingrese numero a intentar dividir por cero: ");
             div = int.Parse(Console.ReadLine());
@@ -98,7 +98,6 @@ namespace Practico02
                 Console.WriteLine("Error!");
                 Console.WriteLine("No es posible dividir por cero!");
                 operacion = false;
-                Console.ReadKey();
             }
 
             string final = (operacion) ? "ha sido exitosa" : "no ha sido exitosa";
@@ -109,12 +108,12 @@ namespace Practico02
         static void Inciso2()
         {
             int div1, div2;
-            float resultado = 0;
+            double resultado = 0;
             bool operacion = true;
 
             try
             {
-                Console.Write("\nIngrese entero dividendo: ");
+                Console.Write("Ingrese entero dividendo: ");
                 div1 = int.Parse(Console.ReadLine());
                 Console.Write("Ingrese entero divisor: ");
                 div2 = int.Parse(Console.ReadLine());
@@ -125,7 +124,7 @@ namespace Practico02
                 Console.Clear();
                 Console.WriteLine("\n                                             ¡Error!");
                 Console.WriteLine("\n                               ¡¿Estas loco, dividir por cero?!");
-                Console.WriteLine("\n     ALERTA: El Sujeto intenta romper las leyes matematicas, la matrix se encuentra en peligro");
+                Console.WriteLine("\n     ALERTA: El Sujeto intenta romper las leyes matematicas, la matrix se encuentra en peligro (borrar esta linea)");
                 Console.WriteLine("         Antencion Sujeto: quedese donde esta, un agente llegara pronto a su localizacion");
                 Console.WriteLine("                                       Que tenga un buen dia");
                 operacion = false;
@@ -148,11 +147,26 @@ namespace Practico02
 
         static void Inciso3()
         {
+            Console.WriteLine("En la siguiente pantalla, se intenta asignar un valor booleano a un string,\nel mismo es un valor nulo, y es capturado como excepcion");
+            Console.WriteLine("(Presione Enter para continuar)");
+            Console.ReadKey();
+            Console.Clear();
 
+            Logic logica = new Logic(null);
+
+            try
+            {
+                string pasar = logica.valida.Value.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Eror! La variable no es ni Verdadero ni Falso");
+            }
         }
 
         static void Inciso4()
         {
+
 
         }
     }
