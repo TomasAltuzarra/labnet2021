@@ -29,7 +29,7 @@ namespace Practico02
                     try
                     {
                         opc = int.Parse(Console.ReadLine());
-                        if (opc >= 0 && opc < 4)
+                        if (opc >= 0 && opc < 5)
                         {
                             validar = true;
                         }
@@ -68,7 +68,7 @@ namespace Practico02
                         Inciso4();
                         break;
                     case 0:
-                        Console.WriteLine("\nGracias vuelva prontos");
+                        Console.WriteLine("Gracias vuelva prontos");
                         break;
                 }
 
@@ -78,7 +78,6 @@ namespace Practico02
 
             } while (opc != 0);
 
-            //Console.ReadKey();
         }
 
         static void Inciso1()
@@ -93,7 +92,7 @@ namespace Practico02
             {
                 resultado = div.Dividir();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Error!");
                 Console.WriteLine("No es posible dividir por cero!");
@@ -124,9 +123,9 @@ namespace Practico02
                 Console.Clear();
                 Console.WriteLine("\n                                             ¡Error!");
                 Console.WriteLine("\n                               ¡¿Estas loco, dividir por cero?!");
-                Console.WriteLine("\n     ALERTA: El Sujeto intenta romper las leyes matematicas, la matrix se encuentra en peligro (borrar esta linea)");
-                Console.WriteLine("         Antencion Sujeto: quedese donde esta, un agente llegara pronto a su localizacion");
-                Console.WriteLine("                                       Que tenga un buen dia");
+                Console.WriteLine("\n     ALERTA: El Sujeto intenta romper las leyes matemáticas, la matrix se encuentra en peligro (no mostrar esta línea)");
+                Console.WriteLine("         Antención Sujeto: quedese donde esta, un agente llegara pronto a su localización");
+                Console.WriteLine("                                       Que tenga un buen día");
                 operacion = false;
                 Console.ReadKey();
             }
@@ -161,13 +160,26 @@ namespace Practico02
             catch (Exception e)
             {
                 Console.WriteLine("Eror! La variable no es ni Verdadero ni Falso");
+                Console.WriteLine(e.Message);
             }
         }
 
         static void Inciso4()
         {
+            Console.WriteLine("A continuación se captura muestra un mensaje de una excepción personalizada");
+            Console.WriteLine("(Presione Enter para continuar)");
+            Console.ReadKey();
+            Console.Clear();
 
-
+            try
+            {
+                throw new CustomException();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Captura2");
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
