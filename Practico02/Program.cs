@@ -7,7 +7,7 @@ using Practico02.Extensiones;
 
 namespace Practico02
 {
-    class Program
+    public class Program
     {
 
         static void Main(string[] args) =>
@@ -80,7 +80,7 @@ namespace Practico02
 
         }
 
-        static void Inciso1()
+        public static void Inciso1()
         {
             int div;
             double resultado = 0;
@@ -104,7 +104,7 @@ namespace Practico02
 
         }
 
-        static void Inciso2()
+        public static void Inciso2()
         {
             int div1, div2;
             double resultado = 0;
@@ -144,7 +144,7 @@ namespace Practico02
 
         }
 
-        static void Inciso3()
+        public static void Inciso3()
         {
             Console.WriteLine("En la siguiente pantalla, se intenta asignar un valor booleano a un string,\nel mismo es un valor nulo, y es capturado como excepcion");
             Console.WriteLine("(Presione Enter para continuar)");
@@ -164,7 +164,7 @@ namespace Practico02
             }
         }
 
-        static void Inciso4()
+        public static void Inciso4()
         {
             Console.WriteLine("A continuación se captura muestra un mensaje de una excepción personalizada");
             Console.WriteLine("(Presione Enter para continuar)");
