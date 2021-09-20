@@ -10,16 +10,9 @@ namespace Practico04
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-
-            CustomersLogic customersLogic = new CustomersLogic();
-
-            foreach (Customers customer in customersLogic.GetAll())
-            {
-                Console.WriteLine($"{customer.ContactName} - {customer.CompanyName}");
-            }
-
+            new Program().Menu();
             Console.ReadLine();
         }
 
@@ -28,10 +21,35 @@ namespace Practico04
             Console.WriteLine("1-Customers\n2-Employees");
             int opc = int.Parse(Console.ReadLine());
 
-            case(opc){ 
-                case 1:
-                    
-                    } 
+            switch(opc)
+            { 
+                case 1: GetCustomers(); break;
+                case 2: GetEmployees(); break;
+                default: Console.WriteLine("xd"); break;
+            }
+            return;
+        }
+
+        public void GetCustomers()
+        {
+            CustomersLogic customersLogic = new CustomersLogic();
+
+            foreach (Customers customer in customersLogic.GetAll())
+            {
+                Console.WriteLine($"{customer.ContactName} - {customer.CompanyName}");
+            }
+            return;
+        }
+
+        public void GetEmployees()
+        {
+            EmployeesLogic employeesLogic = new EmployeesLogic();
+
+            foreach (Employees employee in employeesLogic.GetAll())
+            {
+                Console.WriteLine($"{employee.LastName} - {employee.Title}");
+            }
+            return;
         }
     }
 }

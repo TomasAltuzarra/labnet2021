@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
-    class EmployeesLogic
+    public class EmployeesLogic
     {
         private readonly NorthwindContext context;
 
