@@ -8,15 +8,8 @@ using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
-    public class CustomersLogic
+    public class CustomersLogic : BaseLogic
     {
-        private readonly NorthwindContext context;
-
-        public CustomersLogic()
-        {
-            context = new NorthwindContext(); 
-        }
-
         public List<Customers> GetAll()
         {
             return context.Customers.ToList();

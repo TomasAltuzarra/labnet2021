@@ -1,5 +1,4 @@
 ﻿using Practico04.Data;
-using Practico04.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
-    public class EmployeesLogic : BaseLogic
+    public class BaseLogic
     {
-        public List<Employees> GetAll()
+        protected readonly NorthwindContext context;
+
+        public BaseLogic() 
         {
-            return context.Employees.ToList();
+            context = new NorthwindContext();
         }
     }
 }
