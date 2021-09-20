@@ -57,5 +57,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practico04.Entities\Practico04.Entities.csproj">
+      <Project>{7A37ECA4-E3E9-45E0-AA1D-84C4A9AB3483}</Project>
+      <Name>Practico04.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Practico04.Logic\Practico04.Logic.csproj">
+      <Project>{DD5A7FF8-3A6A-4A71-8160-20D41D5E9771}</Project>
+      <Name>Practico04.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
