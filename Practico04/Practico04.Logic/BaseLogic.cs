@@ -15,5 +15,6 @@ namespace Practico04.Logic
         {
             context = new NorthwindContext();
         }
+
     }
 }
