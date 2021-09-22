@@ -17,6 +17,7 @@ namespace Practico04.Logic
 
         public Customers GetOne(string id)
         {
+            //return context.Customers.First(c => c.CustomerID == id);
             return context.Customers.Find(id);
         }
 
@@ -33,12 +34,21 @@ namespace Practico04.Logic
             context.SaveChanges();
         }
 
-        public void Update(Customers customer)
+        public void Update(Customers c)
         {
-            var customerUpdate = context.Customers.Find(customer.CustomerID);
+            var customerUpdate = context.Customers.Find(c.CustomerID);
 
-            //ver aca los updates
-            customerUpdate.ContactName = customer.ContactName;
+            customerUpdate.CustomerID = c.CustomerID;
+            customerUpdate.CompanyName = c.CompanyName;
+            customerUpdate.ContactName = c.ContactName;
+            customerUpdate.ContactTitle = c.ContactTitle;
+            customerUpdate.Address = c.Address;
+            customerUpdate.City = c.City;
+            customerUpdate.Region = c.Region;
+            customerUpdate.PostalCode = c.PostalCode;
+            customerUpdate.Country = c.Country;
+            customerUpdate.Phone = c.Phone;
+            customerUpdate.Fax = c.Fax;
 
             context.SaveChanges();
         }
