@@ -253,8 +253,116 @@ namespace Practico04
 
         public void Delete()
         {
-            throw new NotImplementedException();
-        }
+            CustomersLogic customersLogic = new CustomersLogic();
+            Customers c = new Customers();
+
+            Console.WriteLine("Ingrese ID de cliente a eliminar: ");
+            string id = Console.ReadLine().ToUpper();
+            c = customersLogic.GetOne(id);
+
+            if (c == null)
+            {
+                Console.WriteLine("\nLa ID ingresada no es valida o el cliente no existe");
+                Console.Write("Presione Entrer para continuar");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Cliente: ");
+                Console.WriteLine($"\nID (5): {c.CustomerID}");
+                Console.WriteLine($"Compañía (40): {c.CompanyName}");
+                Console.WriteLine($"Nombre (30): {c.ContactName}");
+                Console.WriteLine($"Puesto (30): {c.ContactTitle}");
+                Console.WriteLine($"Dirección (60): {c.Address}");
+                Console.WriteLine($"Ciudad (15): {c.City}");
+                Console.WriteLine($"Región (15): {c.Region}");
+                Console.WriteLine($"Código Postal (10): {c.PostalCode}");
+                Console.WriteLine($"País (15): {c.Country}");
+                Console.WriteLine($"Teléfono (24): {c.Phone}");
+                Console.WriteLine($"Fax (24): {c.Fax}");
+                Console.ReadKey();
+            }
+
+            int opc = 0;
+            bool validar = false;
+            int sn;
+
+            do
+            {
+                do
+                {
+                    Console.WriteLine("Opciones:");
+                    Console.WriteLine("1-Buscar un nuevo Cliente\n2-Eliminar Cliente\n");
+                    Console.WriteLine("0-Volver al menú");
+                    Console.Write("\n Ingrese una opción: ");
+
+                    try
+                    {
+                        opc = int.Parse(Console.ReadLine());
+                        if (opc >= 0 && opc < 3)
+                        {
+                            validar = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n               !!\nLa opcion ingresada no es valida\n(presione Enter para continuar)");
+                            Console.ReadLine();
+                        }
+
+                        Console.Clear();
+
+
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("\nLa opcion ingresada debe ser un número entero");
+                        Console.Write("Presione Entrer para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                } while (validar == false);
+
+                do
+                {
+                    Console.WriteLine("Opciones:");
+                    Console.Write($"¿Esta seguro que desea eliminar la cliente {c.CustomerID}? (Y-1/N-2): ");
+                    sn = int.Parse(Console.ReadLine());
+
+                    try
+                    {
+                        opc = int.Parse(Console.ReadLine());
+                        if (opc >= 1 && opc <=2 )
+                        {
+                            validar = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n               !!\nLa opcion ingresada no es valida\n(presione Enter para continuar)");
+                            Console.ReadLine();
+                        }
+                        Console.Clear();
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("\nLa opcion ingresada debe ser un número entero");
+                        Console.Write("Presione Entrer para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                    if (sn == 1)
+                    {
+                        customersLogic.Delete(c.CustomerID);
+                        Console.WriteLine("Cliente eliminado");
+                        Console.Write("Presione Entrer para continuar");
+                    }
+                } while (validar == false);
+
+            } while (validar == false);
+            return;
+        }  
 
     }
 }
