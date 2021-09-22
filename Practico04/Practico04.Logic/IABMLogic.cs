@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
-    interface IABMLogic<A>
+    interface IABMLogic<A,B>
     {
-        //public List<A> GetAll();
-        //void Add(A newAlgo);
-
-
-
+        List<A> GetAll();
+        A GetOne(B codigo);
+        void Add(A newAlgo);
+        void Delete(B codigo);
+        void Update(A newAlgo);
     }
 }

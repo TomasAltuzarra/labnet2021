@@ -56,10 +56,16 @@ namespace Practico04
                     case 1:
                         Console.WriteLine("Listado de clientes: ");
                         GetAll();
+                        Console.Write("\nPresione Entrer para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 2:
                         Console.Write("Ingrese ID de cliente:");
                         GetOne();
+                        Console.Write("\nPresione Entrer para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 3:
                         Console.WriteLine("Nuevo cliente:");
@@ -74,11 +80,6 @@ namespace Practico04
                         Delete();
                         break;
                 }
-
-                //Console.WriteLine("(presione Enter para continuar)");
-                //Console.ReadKey();
-                //Console.Clear();
-
             } while (opc != 0);
 
         }

@@ -23,7 +23,7 @@ namespace Practico04
                 do
                 {
                     Console.WriteLine("Bienvenido:\n");
-                    Console.WriteLine("1-Opciones Clientes\n2-Opciones Empleados");
+                    Console.WriteLine("1-Opciones Clientes\n2-Listar Empleados");
                     Console.WriteLine("(Presione 0 para salir)");
                     Console.Write("\n Ingrese una opción: ");
 
@@ -58,18 +58,15 @@ namespace Practico04
             { 
                 case 1: c.SubMenuCustomers(); break;
                 case 2: GetEmployees(); break;
-                default: Console.WriteLine("Gracias vuelva prontos"); break;
-            }
-
-            Console.WriteLine("(presione Enter para continuar)");
-            Console.ReadKey();
-            Console.Clear();
-
+                default: Console.WriteLine("Gracias vuelva prontos"); 
+                Console.WriteLine("(presione Enter para continuar)");
+                Console.ReadKey();
+                Console.Clear();
+                break;
+                }
             } while (opc != 0);
             return;
         }
-
-        
 
         public void GetEmployees()
         {
@@ -79,6 +76,9 @@ namespace Practico04
             {
                 Console.WriteLine($"{employee.LastName} - {employee.Title}");
             }
+            Console.WriteLine("\n(presione Enter para continuar)");
+            Console.ReadKey();
+            Console.Clear();
             return;
         }
 

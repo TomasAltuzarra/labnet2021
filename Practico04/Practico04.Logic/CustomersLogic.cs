@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
-    public class CustomersLogic : BaseLogic
+    public class CustomersLogic : BaseLogic , IABMLogic<Customers, string>
     {
         public List<Customers> GetAll()
         {
@@ -17,7 +17,6 @@ namespace Practico04.Logic
 
         public Customers GetOne(string id)
         {
-            //return context.Customers.First(c => c.CustomerID == id);
             return context.Customers.Find(id);
         }
 
@@ -52,5 +51,6 @@ namespace Practico04.Logic
 
             context.SaveChanges();
         }
+
     }
 }

@@ -1,36 +1,34 @@
-﻿using Practico04.Data;
-using Practico04.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practico04.Logic
+namespace Practico04
 {
-    public class EmployeesLogic : BaseLogic, IABMLogic<Employees, int>
+    class EmployeesABM : IABM
     {
-        public void Add(Employees newAlgo)
+        public void Delete()
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<Employees> GetAll()
-        {
-            return context.Employees.ToList();
-        }
-
-        public Employees GetOne(int id)
+        public void GetOne()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Employees newAlgo)
+        public void New()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
         {
             throw new NotImplementedException();
         }
