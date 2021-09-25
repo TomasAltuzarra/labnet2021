@@ -17,13 +17,17 @@ namespace Practico05.Logic
         {
             return context.Customers.First();
         }
-
-        public void Query2() { }
+        public void Query2() 
+        {
+            
+        }
         public void Query3() { }
         public void Query4() { }
         public void Query5() { }
         public void Query6() { }
         public void Query7() { }
+
+        //Enunciados extras
         public void Query8() { }
         public void Query9() { }
         public void Query10() { }
