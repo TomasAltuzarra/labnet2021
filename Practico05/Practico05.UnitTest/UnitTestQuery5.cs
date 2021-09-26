@@ -11,19 +11,11 @@ namespace Practico05.UnitTest
         Consultas consulta = new Consultas();
 
         [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
         public void TestMeQuery5_DevuelveIDCorrectaONulo()
         {
             var p = consulta.Query5();
-
-            if (789 != p.ProductID)
-            {
-                Assert.IsTrue(789 == p.ProductID);
-            }
-            else 
-            {
-                Assert.IsTrue(0 == p.ProductID);
-                Assert.IsNull(p);
-            }
+            Assert.IsTrue(789 == p.ProductID);
         }
     }
 }

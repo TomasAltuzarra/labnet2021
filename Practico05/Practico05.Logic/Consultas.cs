@@ -11,10 +11,8 @@ namespace Practico05.Logic
     {
         
 /*
-5. Query para devolver el primer elemento o nulo de una lista de productos donde el ID de
-producto sea igual a 789
-6. Query para devolver los nombre de los Customers.Mostrarlos en Mayuscula y en
-Minuscula.
+6. Query para devolver los nombre de los Customers.
+Mostrarlos en Mayuscula y en Minuscula.
 7. Query para devolver Join entre Customers y Orders donde los customers sean de la
 Región WA y la fecha de orden sea mayor a 1/1/1997.
 
@@ -48,12 +46,33 @@ Los siguientes ejercicios no son obligatorios, pero es deseable que estén resue
         }
         public Products Query5() 
         {
-            var query5 = context.Products.FirstOrDefault(p => p.ProductID == 789);
-            return query5;
+            return context.Products.FirstOrDefault(p => p.ProductID == 789);
         }
-        public void Query6() 
+        public List<string> Query6() 
         {
-            
+            List<string> nombre = new List<string>();
+
+            var query = from c in context.Customers
+                        select new { min = c.ContactName.ToLower(), mayus = c.ContactName.ToUpper() };
+            foreach (var n in query)
+            {
+                nombre.Add(($"{n.min} - {n.mayus}"));
+            }
+            return nombre;
+        }
+
+        public List<string> Query6Bis(string nomb)
+        {
+            List<string> nombre = new List<string>();
+
+            var query = from c in context.Customers
+                        where c.ContactName == nomb
+                        select new { min = c.ContactName.ToLower(), mayus = c.ContactName.ToUpper() };
+            foreach (var n in query)
+            {
+                nombre.Add(($"{n.min} - {n.mayus}"));
+            }
+            return nombre;
         }
         public void Query7() 
         {
