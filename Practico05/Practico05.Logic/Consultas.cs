@@ -17,11 +17,14 @@ namespace Practico05.Logic
         {
             return context.Customers.First();
         }
-        public void Query2() 
+        public List<Products> Query2() 
         {
-            
+            return context.Products.Where(p => p.UnitsInStock == 0).ToList();
         }
-        public void Query3() { }
+        public List<Products> Query3() 
+        {
+            return context.Products.Where(p => p.UnitsInStock > 0 && p.UnitPrice > 3).ToList();
+        }
         public void Query4() { }
         public void Query5() { }
         public void Query6() { }
