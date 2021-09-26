@@ -10,6 +10,7 @@ namespace Practico05.Consola
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
