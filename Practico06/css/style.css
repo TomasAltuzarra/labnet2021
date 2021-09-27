@@ -1,0 +1,306 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html {
+  font-family: 'Montserrat', Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #3b6281;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, select, textarea {
+  color: #e8f8ff;
+  font: inherit;
+  margin: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+textarea {
+  overflow: auto;
+}
+
+#formulario {
+  background: #55abce;
+  border: solid 3px #000000;
+  max-width: 768px;
+  margin: 60px auto;
+  position: relative;
+}
+#container {
+  background: #55abce;
+  border: solid 3px #000000;
+  max-width: 768px;
+  margin: 60px auto;
+  position: relative;
+}
+
+form {
+  padding: 37.5px;
+  margin: 50px 0;
+}
+
+h1 {
+  color: #181717;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #181717;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: #181717;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+legend {
+  color: #181717;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+fieldset{
+  border: solid 2px #000000;  
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.underline {
+  border-bottom: solid 2px #000000;
+  margin: -0.512em auto;
+  width: 80px;
+}
+
+.icon {
+  display: block;
+  fill: #000000;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.date_label{
+  color: #181717;
+  text-align: left;
+}
+
+.name {
+	float: center;
+	width: 95%;
+}
+
+.surname {
+	float: center;
+	width: 95%;
+}
+
+input[type='text'], [type='text'], select, textarea {
+	background: #e8f8ff;
+  border: none;
+	border-bottom: solid 2px #000000;
+	color: #474544;
+	font-size: 1.000em;
+  font-weight: 400;
+  letter-spacing: 1px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+input[type='Date'], [type='Date'], select, textarea { 
+	background: #e8f8ff;
+  border: none;
+	border-bottom: solid 2px #000000;
+	color: #474544;
+	font-size: 1.000em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+	padding: 0 0 0.875em 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+input[type='text']:focus, [type='text']:focus, textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+
+.message {
+	float: none;
+}
+
+.business {
+	width: 100%;
+}
+
+select {
+  background: #e8f8ff;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+textarea {
+	line-height: 150%;
+	height: 150px;
+	resize: none;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+	color: #000000;
+}
+
+:-moz-placeholder { 
+	color: #000000;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: #000000;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #000000;
+}
+
+#sub_button:hover {
+  background: #e8f8ff;
+  text-emphasis-color: #000000;
+}
+#sub_button {
+  background: none;
+  border: solid 2px #000000;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#clean_button:hover {
+  background: #e8f8ff;
+  color: #000000;
+  text-emphasis-color: #000000;
+}
+#clean_button {
+  background: none;
+  border: solid 2px #000000;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+
+@media screen and (max-width: 768px) {
+  #container {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+  
+  .underline {
+    width: 68px;
+  }
+  
+  #sub_button {
+    padding: 15px 25px;
+  }
+  #clean_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 18px;
+  }
+  
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .underline {
+    width: 53px;
+  }
+  
+  input[type='text'], [type='email'], select, textarea {
+    font-size: 0.875em;
+  }
+}

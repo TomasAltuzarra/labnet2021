@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div id="container">-
+  <h1> Contacto </h1>
+  <h2> Completa con tus datos debajo:</h2>
+</div>
+
+  <form action="" class="formulario" id="formulario" method="post">
+    <fieldset> <legend>Informacion personal</legend>
+    <div class="name">
+      <input type="text" placeholder="Nombre" id=name name="name">
+    </div>
+    <div class="surname">
+      <input type="text" placeholder="Apellido" id=surname name="surname">
+    </div>
+    <label for="date" class="date_label">Fecha de nacimiento:
+    <div class="date">
+      <input type="date" id="fecha" name="fecha">
+      </div>
+    <label for="sexo">Sexo
+    </label>
+    <select name="sexo">
+        <option value="0">-</option>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+        <option value="3">Otro</option>
+    </select>
+  </fieldset>
+    
+  <fieldset> <legend>Informacion adicional</legend>
+    <div class="business">
+      <label for="business"></label>
+      <input type="text" placeholder="Empresa" id=business name="business">
+    </div>
+  </fieldset>
+
+    <div style="text-align: center">
+      <button type="submit" id="sub_button" onclick="return validateForm()">Submit</button>
+      <button type="reset" id="clean_button"onclick="return clearForm()">Limpiar</button>
+    </div>
+
+  </form>
+  <script src="js/script.js" src=js/jquery.js></script>
+</body>
+</html>
