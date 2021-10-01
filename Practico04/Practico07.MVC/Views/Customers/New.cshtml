@@ -1,0 +1,17 @@
+﻿@model Practico07.MVC.Models.CustomerView
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h1>Nuevo Cliente</h1>
+
+@using (Html.BeginForm("New", "Customer", FormMethod.Post))
+{
+    <label>ID: @Html.TextBoxFor(c => c.CustomerID)</label>
+    <label>Empresa: @Html.TextBoxFor(c => c.CompanyName)</label>
+    <label>Nombre: @Html.TextBoxFor(c => c.ContactName)</label>
+    <label>Ciudad: @Html.TextBoxFor(c => c.City)</label>
+    <label>Pais: @Html.TextBoxFor(c => c.Country)</label>
+    <label>Telefono: @Html.TextBoxFor(c => c.Phone)</label>
+    <input type="submit" class="btn-success" name="Guardar" value="Guardar"/>
+}

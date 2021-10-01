@@ -1,0 +1,35 @@
+﻿@model List<Practico07.MVC.Models.CustomerView>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h1>Menu de Clientes</h1>
+<div class="table table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID Cliente</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+             {
+                <tr>
+                    <th scope="row">@c.CustomerID</th>
+                    <td>@c.ContactName</td>
+                    <td>@c.CompanyName</td>
+                    <td>@c.City</td>
+                </tr> 
+             }
+
+            </tbody>
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink("Nuevo Cliente","New", "Customer")
+</div>
