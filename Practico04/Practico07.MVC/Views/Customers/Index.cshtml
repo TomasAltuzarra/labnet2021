@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "Clientes";
 }
-
-<h1>Menu de Clientes</h1>
+<div>
+    <h1>Menu de Clientes</h1>
+</div>
 <div class="table table-responsive">
     <table class="table table-striped">
         <thead>
@@ -13,23 +14,27 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Empresa</th>
                 <th scope="col">Ciudad</th>
+                <th scope="col">País</th>
+                <th scope="col">Teléfono</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var c in Model)
              {
-                <tr>
-                    <th scope="row">@c.CustomerID</th>
-                    <td>@c.ContactName</td>
-                    <td>@c.CompanyName</td>
-                    <td>@c.City</td>
-                </tr> 
+            <tr>
+                <th scope="row">@c.CustomerID</th>
+                <td>@c.ContactName</td>
+                <td>@c.CompanyName</td>
+                <td>@c.City</td>
+                <td>@c.Country</td>
+                <td>@c.Phone</td>
+                <tb>@Html.ActionLink("Eliminar", "Delete", new { id = c.CustomerID }, new { onclick = "return confirm (Borrar?)" })</tb>
+            </tr>
              }
-
-            </tbody>
+        </tbody>
     </table>
 </div>
 
 <div>
-    @Html.ActionLink("Nuevo Cliente","New", "Customer")
+    @Html.ActionLink("Nuevo Cliente", "New", "Customers")
 </div>

@@ -258,7 +258,7 @@ namespace Practico04
 
             int opc;
             bool validar = false;
-            int sn;
+            //int sn;
 
             do
             {
@@ -297,7 +297,7 @@ namespace Practico04
 
                 do
                 {
-                    Console.WriteLine("Opciones:");
+                    /*Console.WriteLine("Opciones:");
                     Console.Write($"¿Esta seguro que desea eliminar la cliente {c.CustomerID}? (Y-1/N-2): ");
                     sn = int.Parse(Console.ReadLine());
 
@@ -324,11 +324,11 @@ namespace Practico04
                     }
 
                     if (sn == 1)
-                    {
+                    {*/
                         customersLogic.Delete(c.CustomerID);
                         Console.WriteLine("Cliente eliminado");
                         Console.Write("Presione Entrer para continuar");
-                    }
+                    //}
                 } while (validar == false);
 
             } while (validar == false);

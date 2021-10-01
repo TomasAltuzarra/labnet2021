@@ -15,7 +15,7 @@ namespace Practico07.MVC.Controllers
         {
             List<CustomerDto> customers = logic.GetAll();
 
-            List<CustomerView> customersViews = customers.Select(cus=> new CustomerView 
+            List<CustomerView> customersViews = customers.Select(cus => new CustomerView
             {
                 CustomerID = cus.CustomerID,
                 CompanyName = cus.CompanyName,
@@ -38,9 +38,9 @@ namespace Practico07.MVC.Controllers
         {
             try
             {
-                var customerEntity = new CustomerDto() 
+                var customerEntity = new CustomerDto()
                 {
-                    CustomerID = customer.CustomerID,
+                    CustomerID = (customer.CustomerID).ToUpper(),
                     CompanyName = customer.CompanyName,
                     ContactName = customer.ContactName,
                     City = customer.City,
@@ -52,9 +52,14 @@ namespace Practico07.MVC.Controllers
             }
             catch (Exception)
             {
-                return RedirectToAction("Index", "View");
+                return RedirectToAction("Index", "Error");
             }
+        }
 
+        public ActionResult Delete(string id)
+        {
+            logic.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

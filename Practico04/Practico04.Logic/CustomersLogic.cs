@@ -36,7 +36,6 @@ namespace Practico04.Logic
                 Country = cus.Country,
                 Phone = cus.Phone
             };
-
             return customer;
         }
 
@@ -56,7 +55,6 @@ namespace Practico04.Logic
             context.Customers.Add(customer);
             context.SaveChanges();
         }
-
 
         public void Delete(string id)
         {
@@ -79,6 +77,5 @@ namespace Practico04.Logic
 
             context.SaveChanges();
         }
-
     }
 }
