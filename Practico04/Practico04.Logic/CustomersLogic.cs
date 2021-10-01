@@ -1,10 +1,7 @@
 ﻿using Practico04.Entities;
 using Practico04.Entities.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
