@@ -1,5 +1,5 @@
-﻿using Practico04.Data;
-using Practico04.Entities;
+﻿using Practico04.Entities;
+using Practico04.Entities.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +8,56 @@ using System.Threading.Tasks;
 
 namespace Practico04.Logic
 {
-    public class CustomersLogic : BaseLogic , IABMLogic<Customers, string>
+    public class CustomersLogic : BaseLogic , IABMLogic<CustomerDto, string>
     {
-        public List<Customers> GetAll()
+        public List<CustomerDto> GetAll()
         {
-            return context.Customers.ToList();
+            var lista = (from c in context.Customers
+                    select new CustomerDto()
+                    {
+                        CustomerID = c.CustomerID,
+                        CompanyName = c.CompanyName,
+                        ContactName = c.ContactName,
+                        ContactTitle = c.ContactTitle,
+                        City = c.City,
+                        Country = c.Country,
+                        Phone = c.Phone
+                    }).ToList();
+            return lista;
         }
 
-        public Customers GetOne(string id)
+        public CustomerDto GetOne(string id)
         {
-            return context.Customers.Find(id);
+            Customers cus = context.Customers.Find(id);
+            CustomerDto customer = new CustomerDto();
+
+            customer.CustomerID = cus.CustomerID;
+            customer.CompanyName = cus.CompanyName;
+            customer.ContactName = cus.ContactName;
+            customer.ContactTitle = cus.ContactTitle;
+            customer.City = cus.City;
+            customer.Country = cus.Country;
+            customer.Phone = cus.Phone;
+
+            return customer;
         }
 
-        public void Add(Customers newCustomer)
+        public void Add(CustomerDto cus)
         {
-            context.Customers.Add(newCustomer);
+            Customers customer = new Customers();
+
+            customer.CustomerID = cus.CustomerID;
+            customer.CompanyName = cus.CompanyName;
+            customer.ContactName = cus.ContactName;
+            customer.ContactTitle = cus.ContactTitle;
+            customer.City = cus.City;
+            customer.Country = cus.Country;
+            customer.Phone = cus.Phone;
+
+            context.Customers.Add(customer);
             context.SaveChanges();
         }
+
 
         public void Delete(string id)
         {
@@ -33,7 +66,7 @@ namespace Practico04.Logic
             context.SaveChanges();
         }
 
-        public void Update(Customers c)
+        public void Update(CustomerDto c)
         {
             var customerUpdate = context.Customers.Find(c.CustomerID);
 
@@ -41,13 +74,9 @@ namespace Practico04.Logic
             customerUpdate.CompanyName = c.CompanyName;
             customerUpdate.ContactName = c.ContactName;
             customerUpdate.ContactTitle = c.ContactTitle;
-            customerUpdate.Address = c.Address;
             customerUpdate.City = c.City;
-            customerUpdate.Region = c.Region;
-            customerUpdate.PostalCode = c.PostalCode;
             customerUpdate.Country = c.Country;
             customerUpdate.Phone = c.Phone;
-            customerUpdate.Fax = c.Fax;
 
             context.SaveChanges();
         }

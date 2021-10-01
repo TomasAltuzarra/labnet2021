@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practico04.Data", "..\Pract
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practico04.Entities", "..\Practico04.Entities\Practico04.Entities.csproj", "{7A37ECA4-E3E9-45E0-AA1D-84C4A9AB3483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTexting", "..\UnitTexting\UnitTexting.csproj", "{C267E3AD-EA46-42EB-8B18-718D0803B63D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "..\UnitTexting\UnitTesting.csproj", "{C267E3AD-EA46-42EB-8B18-718D0803B63D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practico07.MVC", "..\Practico07.MVC\Practico07.MVC.csproj", "{EA60AE72-EE52-478C-B07B-D38B0EBF4B0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C267E3AD-EA46-42EB-8B18-718D0803B63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C267E3AD-EA46-42EB-8B18-718D0803B63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C267E3AD-EA46-42EB-8B18-718D0803B63D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA60AE72-EE52-478C-B07B-D38B0EBF4B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA60AE72-EE52-478C-B07B-D38B0EBF4B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA60AE72-EE52-478C-B07B-D38B0EBF4B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA60AE72-EE52-478C-B07B-D38B0EBF4B0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

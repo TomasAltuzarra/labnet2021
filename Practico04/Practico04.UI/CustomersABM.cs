@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Practico04.Logic;
 using Practico04.Entities;
+using Practico04.Entities.DTO;
 
 namespace Practico04
 {
@@ -88,9 +89,9 @@ namespace Practico04
         {
             CustomersLogic customersLogic = new CustomersLogic();
 
-            foreach (Customers customer in customersLogic.GetAll())
+            foreach (CustomerDto customer in customersLogic.GetAll())
             {
-                Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.CompanyName} - {customer.Address} ({customer.City}, {customer.Country})");
+                Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.CompanyName} - {customer.City} ({customer.Country})");
             }
             return;
         }
@@ -98,7 +99,7 @@ namespace Practico04
         public void GetOne()
         {
             CustomersLogic customersLogic = new CustomersLogic();
-            Customers customer;
+            CustomerDto customer;
 
             string id = Console.ReadLine().ToUpper();
             customer = customersLogic.GetOne(id);
@@ -115,8 +116,8 @@ namespace Practico04
                 Console.Clear();
                 Console.WriteLine($"ID: {customer.CustomerID}\n{customer.ContactName} - {customer.ContactTitle}");
                 Console.WriteLine($"Empresa: {customer.CompanyName}");
-                Console.WriteLine($"Dirección: {customer.Address} ({customer.City}, {customer.Country})");
-                Console.WriteLine($"Contacto: {customer.Phone}/{customer.Fax}");
+                Console.WriteLine($"Ciudad: {customer.City} ({customer.Country})");
+                Console.WriteLine($"Contacto: {customer.Phone}");
             }
 
             Console.ReadKey();
@@ -128,7 +129,7 @@ namespace Practico04
         {
             bool validar = false;
             CustomersLogic customersLogic = new CustomersLogic();
-            Customers c = new Customers();
+            CustomerDto c = new CustomerDto();
 
             do
             {
@@ -139,25 +140,17 @@ namespace Practico04
                     Console.Write("[!]Compañía (40): "); string nombreCompania = Console.ReadLine();
                     Console.Write("Nombre (30): "); string nombreCliente = Console.ReadLine();
                     Console.Write("Puesto (30): "); string puestoTitulo = Console.ReadLine();
-                    Console.Write("Dirección (60): "); string direccion = Console.ReadLine();
                     Console.Write("Ciudad (15): "); string ciudad = Console.ReadLine();
-                    Console.Write("Región (15): "); string region = Console.ReadLine();
-                    Console.Write("Código Postal (10): "); string codpost = Console.ReadLine();
                     Console.Write("País (15): "); string pais = Console.ReadLine();
                     Console.Write("Teléfono (24): "); string tel = Console.ReadLine();
-                    Console.Write("Fax (24): "); string fax = Console.ReadLine();
 
                     c.CustomerID = id;
                     c.CompanyName = nombreCompania;
                     c.ContactName = nombreCliente;
                     c.ContactTitle = puestoTitulo;
-                    c.Address = direccion;
                     c.City = ciudad;
-                    c.Region = region;
-                    c.PostalCode = codpost;
                     c.Country = pais;
                     c.Phone = tel;
-                    c.Fax = fax;
 
                     customersLogic.Add(c);
                     validar = true;
@@ -180,7 +173,7 @@ namespace Practico04
         {
 
             CustomersLogic customersLogic = new CustomersLogic();
-            Customers c = new Customers();
+            CustomerDto c = new CustomerDto();
 
             Console.WriteLine("Ingrese ID de cliente: ");
             string id = Console.ReadLine().ToUpper();
@@ -203,13 +196,9 @@ namespace Practico04
                 Console.WriteLine($"Compañía (40): {c.CompanyName}");
                 Console.WriteLine($"Nombre (30): {c.ContactName}");
                 Console.WriteLine($"Puesto (30): {c.ContactTitle}");
-                Console.WriteLine($"Dirección (60): {c.Address}");
                 Console.WriteLine($"Ciudad (15): {c.City}");
-                Console.WriteLine($"Región (15): {c.Region}");
-                Console.WriteLine($"Código Postal (10): {c.PostalCode}");
                 Console.WriteLine($"País (15): {c.Country}");
                 Console.WriteLine($"Teléfono (24): {c.Phone}");
-                Console.WriteLine($"Fax (24): {c.Fax}");
                 Console.ReadKey();
                 
                     try
@@ -217,23 +206,15 @@ namespace Practico04
                         Console.WriteLine("A continuacion, ingrese los datos del nuevo cliente\nTenga en cuenta:\n (n) = Numero máximo de caracteres permitidos");
                         Console.Write("Nombre (30): "); string nombreCliente = Console.ReadLine();
                         Console.Write("Puesto (30): "); string puestoTitulo = Console.ReadLine();
-                        Console.Write("Dirección (60): "); string direccion = Console.ReadLine();
                         Console.Write("Ciudad (15): "); string ciudad = Console.ReadLine();
-                        Console.Write("Región (15): "); string region = Console.ReadLine();
-                        Console.Write("Código Postal (10): "); string codpost = Console.ReadLine();
                         Console.Write("País (15): "); string pais = Console.ReadLine();
                         Console.Write("Teléfono (24): "); string tel = Console.ReadLine();
-                        Console.Write("Fax (24): "); string fax = Console.ReadLine();
 
                         c.ContactName = nombreCliente;
                         c.ContactTitle = puestoTitulo;
-                        c.Address = direccion;
                         c.City = ciudad;
-                        c.Region = region;
-                        c.PostalCode = codpost;
                         c.Country = pais;
                         c.Phone = tel;
-                        c.Fax = fax;
 
                         customersLogic.Update(c);
                         validar = true;
@@ -255,7 +236,7 @@ namespace Practico04
         public void Delete()
         {
             CustomersLogic customersLogic = new CustomersLogic();
-            Customers c = new Customers();
+            CustomerDto c = new CustomerDto();
 
             Console.WriteLine("Ingrese ID de cliente a eliminar: ");
             string id = Console.ReadLine().ToUpper();
@@ -276,13 +257,9 @@ namespace Practico04
                 Console.WriteLine($"Compañía (40): {c.CompanyName}");
                 Console.WriteLine($"Nombre (30): {c.ContactName}");
                 Console.WriteLine($"Puesto (30): {c.ContactTitle}");
-                Console.WriteLine($"Dirección (60): {c.Address}");
                 Console.WriteLine($"Ciudad (15): {c.City}");
-                Console.WriteLine($"Región (15): {c.Region}");
-                Console.WriteLine($"Código Postal (10): {c.PostalCode}");
                 Console.WriteLine($"País (15): {c.Country}");
                 Console.WriteLine($"Teléfono (24): {c.Phone}");
-                Console.WriteLine($"Fax (24): {c.Fax}");
                 Console.ReadKey();
             }
 
