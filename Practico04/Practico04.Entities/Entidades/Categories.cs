@@ -6,7 +6,6 @@ namespace Practico04.Entities
 
     public partial class Categories
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categories()
         {
             Products = new HashSet<Products>();
@@ -25,7 +24,6 @@ namespace Practico04.Entities
         [Column(TypeName = "image")]
         public byte[] Picture { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Products> Products { get; set; }
     }
 }

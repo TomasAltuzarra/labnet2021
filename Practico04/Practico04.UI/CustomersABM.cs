@@ -168,11 +168,10 @@ namespace Practico04
         {
 
             CustomersLogic customersLogic = new CustomersLogic();
-            CustomerDto c = new CustomerDto();
 
             Console.WriteLine("Ingrese ID de cliente: ");
             string id = Console.ReadLine().ToUpper();
-            c = customersLogic.GetOne(id);
+            CustomerDto c = customersLogic.GetOne(id);
 
             if (c == null)
             {
@@ -231,11 +230,10 @@ namespace Practico04
         public void Delete()
         {
             CustomersLogic customersLogic = new CustomersLogic();
-            CustomerDto c = new CustomerDto();
 
             Console.WriteLine("Ingrese ID de cliente a eliminar: ");
             string id = Console.ReadLine().ToUpper();
-            c = customersLogic.GetOne(id);
+            CustomerDto c = customersLogic.GetOne(id);
 
             if (c == null)
             {
@@ -258,7 +256,7 @@ namespace Practico04
                 Console.ReadKey();
             }
 
-            int opc = 0;
+            int opc;
             bool validar = false;
             int sn;
 

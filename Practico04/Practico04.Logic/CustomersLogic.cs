@@ -26,30 +26,32 @@ namespace Practico04.Logic
         public CustomerDto GetOne(string id)
         {
             Customers cus = context.Customers.Find(id);
-            CustomerDto customer = new CustomerDto();
-
-            customer.CustomerID = cus.CustomerID;
-            customer.CompanyName = cus.CompanyName;
-            customer.ContactName = cus.ContactName;
-            customer.ContactTitle = cus.ContactTitle;
-            customer.City = cus.City;
-            customer.Country = cus.Country;
-            customer.Phone = cus.Phone;
+            CustomerDto customer = new CustomerDto
+            {
+                CustomerID = cus.CustomerID,
+                CompanyName = cus.CompanyName,
+                ContactName = cus.ContactName,
+                ContactTitle = cus.ContactTitle,
+                City = cus.City,
+                Country = cus.Country,
+                Phone = cus.Phone
+            };
 
             return customer;
         }
 
         public void Add(CustomerDto cus)
         {
-            Customers customer = new Customers();
-
-            customer.CustomerID = cus.CustomerID;
-            customer.CompanyName = cus.CompanyName;
-            customer.ContactName = cus.ContactName;
-            customer.ContactTitle = cus.ContactTitle;
-            customer.City = cus.City;
-            customer.Country = cus.Country;
-            customer.Phone = cus.Phone;
+            Customers customer = new Customers
+            {
+                CustomerID = cus.CustomerID,
+                CompanyName = cus.CompanyName,
+                ContactName = cus.ContactName,
+                ContactTitle = cus.ContactTitle,
+                City = cus.City,
+                Country = cus.Country,
+                Phone = cus.Phone
+            };
 
             context.Customers.Add(customer);
             context.SaveChanges();
