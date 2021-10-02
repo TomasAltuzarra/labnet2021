@@ -67,7 +67,7 @@ namespace Practico04.Logic
         {
             var customerUpdate = context.Customers.Find(c.CustomerID);
 
-            customerUpdate.CustomerID = c.CustomerID;
+            //customerUpdate.CustomerID = c.CustomerID;
             customerUpdate.CompanyName = c.CompanyName;
             customerUpdate.ContactName = c.ContactName;
             customerUpdate.ContactTitle = c.ContactTitle;

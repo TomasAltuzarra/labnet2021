@@ -61,5 +61,25 @@ namespace Practico07.MVC.Controllers
             logic.Delete(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Update()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Update(CustomerView customer)
+        {
+            var customerEntity = new CustomerDto()
+            {
+                CustomerID = (customer.CustomerID).ToUpper(),
+                CompanyName = customer.CompanyName,
+                ContactName = customer.ContactName,
+                City = customer.City,
+                Country = customer.Country,
+                Phone = customer.Phone
+            };
+            logic.Update(customerEntity);
+            return RedirectToAction("Index");
+        }
     }
 }
