@@ -4,6 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@Model.message</h2>
-<a href=@Model.url target="_blank">
-    <button type="button" class="btn btn-warning">photo</button></a>
+<h2>Duck Pic:</h2>
+<div>
+    <img src="@Url.Content(Model.Url)" alt="uhm... a duck is supose to appear here...">
+</div>
+<h3>@Model.Message</h3>

@@ -55,7 +55,12 @@ namespace Practico07.MVC.Controllers
                 return RedirectToAction("Index", "Error");
             }
         }
+        public ActionResult Delete()
+        {
+            return View();
+        }
 
+        [HttpPost]
         public ActionResult Delete(string id)
         {   
             try

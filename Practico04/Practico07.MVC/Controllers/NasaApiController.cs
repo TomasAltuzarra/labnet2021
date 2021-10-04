@@ -11,7 +11,7 @@ namespace Practico07.MVC.Controllers
 {
     public class NasaApiController : Controller
     {
-        string Baseurl = "https://random-d.uk";
+        readonly string Baseurl = "https://random-d.uk/";
         public async Task<ActionResult> Index()
         {
             NasaPicView pic = new NasaPicView();

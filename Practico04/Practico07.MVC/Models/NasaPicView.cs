@@ -2,8 +2,8 @@
 {
     public class NasaPicView
     {
-        public string message { get; set; }
-        public string url { get; set; }
+        public string Message { get; set; }
+        public string Url { get; set; }
 
     }
 }

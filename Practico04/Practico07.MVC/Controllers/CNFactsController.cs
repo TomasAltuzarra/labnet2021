@@ -14,7 +14,7 @@ namespace Practico07.MVC.Controllers
 {
     public class CNFactsController : Controller
     {
-        string Baseurl = "https://api.chucknorris.io";
+        readonly string Baseurl = "https://api.chucknorris.io";
         public async Task<ActionResult> Index()
         {
             CNFactView fact = new CNFactView();
