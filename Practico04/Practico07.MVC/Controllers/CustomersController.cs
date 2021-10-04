@@ -10,7 +10,7 @@ namespace Practico07.MVC.Controllers
 {
     public class CustomersController : Controller
     {
-        CustomersLogic logic = new CustomersLogic();
+        readonly CustomersLogic logic = new CustomersLogic();
         public ActionResult Index()
         {
             List<CustomerDto> customers = logic.GetAll();
@@ -57,9 +57,16 @@ namespace Practico07.MVC.Controllers
         }
 
         public ActionResult Delete(string id)
-        {
-            logic.Delete(id);
-            return RedirectToAction("Index");
+        {   
+            try
+            {
+                logic.Delete(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+               return RedirectToAction("Index", "Error");
+            }
         }
 
         public ActionResult Update()
@@ -67,8 +74,9 @@ namespace Practico07.MVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Update(CustomerView customer)
+        public ActionResult Update(CustomerDto customer)
         {
+            ViewBag.Actualizar = customer.CustomerID;
             var customerEntity = new CustomerDto()
             {
                 CustomerID = (customer.CustomerID).ToUpper(),

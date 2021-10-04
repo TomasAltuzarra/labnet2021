@@ -1,18 +1,51 @@
 ﻿@model Practico07.MVC.Models.CustomerView
 @{
-    ViewBag.Title = "Clientes";
+    ViewBag.Title = "Actualizar";
 }
 
-<h1>Nuevo Cliente</h1>
+<h1>Modificar Cliente</h1>
 
 @using (Html.BeginForm("Update", "Customers", FormMethod.Post))
 {
 
-    <div>ID: @Html.TextBoxFor(c => c.CustomerID)</div>
-    <div>Empresa: @Html.TextBoxFor(c => c.CompanyName)</div>
-    <div>Nombre: @Html.TextBoxFor(c => c.ContactName)</div>
-    <div>Ciudad: @Html.TextBoxFor(c => c.City)</div>
-    <div>Pais: @Html.TextBoxFor(c => c.Country)</div>
-    <div>Telefono: @Html.TextBoxFor(c => c.Phone)</div>
-    <input type="submit" class="btn-success" name="Guardar" value="Guardar" />
+    <form>
+        <div class="table table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">ID: </th>
+                        <td>@ViewBag.CustomerID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Empresa: </th>
+                        <td>@Html.TextBoxFor(c => c.CompanyName)</td>
+                    </tr>
+                    <tr>
+                        <th>Nombre: </th>
+                        <td>@Html.TextBoxFor(c => c.ContactName)</td>
+                    </tr>
+                    <tr>
+                        <th>Ciudad: </th>
+                        <td>@Html.TextBoxFor(c => c.City)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pais: </th>
+                        <td>@Html.TextBoxFor(c => c.Country)</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Telefono: </th>
+                        <td>@Html.TextBoxFor(c => c.Phone)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" class="btn-success" name="Guardar Cambios" value="Guardar" />
+    </form>
 }
