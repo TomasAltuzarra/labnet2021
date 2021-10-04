@@ -28,6 +28,7 @@ namespace Practico07.MVC.Controllers
             return View(customersViews);
         }
 
+        //NEW-----
         public ActionResult New()
         {
             return View();
@@ -55,12 +56,8 @@ namespace Practico07.MVC.Controllers
                 return RedirectToAction("Index", "Error");
             }
         }
-        public ActionResult Delete()
-        {
-            return View();
-        }
 
-        [HttpPost]
+        //DELETE-----
         public ActionResult Delete(string id)
         {   
             try
@@ -74,14 +71,41 @@ namespace Practico07.MVC.Controllers
             }
         }
 
+        //MODIFY-----
         public ActionResult Update()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Update(CustomerDto customer)
+        public ActionResult Update(CustomerView customer)
         {
-            ViewBag.Actualizar = customer.CustomerID;
+            try {
+            var customerEntity = new CustomerDto()
+            {
+                CustomerID = (customer.CustomerID).ToUpper(),
+                CompanyName = customer.CompanyName,
+                ContactName = customer.ContactName,
+                City = customer.City,
+                Country = customer.Country,
+                Phone = customer.Phone
+            };
+            logic.Update(customerEntity);
+            return RedirectToAction("Index"); 
+            }
+            catch (Exception)
+            { 
+               return RedirectToAction("Index", "Error");     
+            }
+        }
+        /*public ActionResult Update()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Update(string cus)
+        {
+            ViewBag.id=cus;
+            CustomerDto customer = logic.GetOne(cus);
             var customerEntity = new CustomerDto()
             {
                 CustomerID = (customer.CustomerID).ToUpper(),
@@ -93,6 +117,6 @@ namespace Practico07.MVC.Controllers
             };
             logic.Update(customerEntity);
             return RedirectToAction("Index");
-        }
+        }*/
     }
 }

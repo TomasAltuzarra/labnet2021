@@ -28,8 +28,7 @@
                 <td>@c.City</td>
                 <td>@c.Country</td>
                 <td>@c.Phone</td>
-                <td><a class="btn btn-danger" href="Delete/@c.CustomerID">X</a></td>
-                <td><a class="btn btn-info" href="Update/@c">Modificar</a></td>
+                <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
             </tr>
              }
         </tbody>
@@ -38,4 +37,7 @@
 
 <div>
     @Html.ActionLink("Nuevo Cliente", "New", "Customers")
+</div>
+<div>
+    @Html.ActionLink("Modificar Existente", "Update", "Customers")
 </div>

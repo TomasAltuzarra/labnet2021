@@ -5,6 +5,8 @@
 
 <h1>Modificar Cliente</h1>
 
+<h3>Ingrese la ID correspondiente al cliente a modificar</h3>
+
 @using (Html.BeginForm("Update", "Customers", FormMethod.Post))
 {
 
@@ -20,7 +22,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">ID: </th>
-                        <td>@ViewBag.CustomerID</td>
+                        <td>@Html.TextBoxFor(c => c.CustomerID)</td>
                     </tr>
                     <tr>
                         <th scope="row">Empresa: </th>
