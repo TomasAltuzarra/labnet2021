@@ -5,16 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
+//import { FormAddModule } from './components/form-add/form-add.module';
+import { FooterModule } from './components/shared-view/footer/footer.module';
+import { HeaderModule } from './components/shared-view/header/header.module';
+import { CustomersListModule } from './components/customers-list/customers-list.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    //FormAddModule,
+    FooterModule,
+    HeaderModule,
+    CustomersListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

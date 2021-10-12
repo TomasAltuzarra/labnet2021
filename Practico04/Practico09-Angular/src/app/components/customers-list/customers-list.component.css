@@ -1,0 +1,23 @@
+.table{
+  padding: 3%;
+}
+
+.search-bar{
+  align-self: auto;
+  width:100%;
+  padding:3%;
+}
+
+.form-control-dark{
+  width: 20%;
+}
+
+.buscador {
+  display:flex;
+  padding-left: 3%;
+  padding-right: 60%;
+}
+
+.last{
+  padding-left: 3%;
+}

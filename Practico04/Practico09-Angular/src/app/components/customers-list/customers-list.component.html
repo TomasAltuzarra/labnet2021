@@ -1,0 +1,96 @@
+<div class="last">
+  <h1>Clientes</h1>
+</div>
+
+<!--Buscar-->
+<form class="form-inline my-2 my-lg-0 and buscador">
+  <input class="form-control mr-sm-2" type="search" placeholder="Buscar cliente" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+
+<!--Listado-->
+<div class="table table-responsive">
+  <h2>Listado de Clientes</h2>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th scope="col">ID Cliente</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">País</th>
+              <th scope="col">Teléfono</th>
+          </tr>
+      </thead>
+      <tbody>
+        <!--
+          @foreach (var c in Model)
+           {
+          <tr>
+              <th scope="row">@c.CustomerID</th>
+              <td>@c.ContactName</td>
+              <td>@c.CompanyName</td>
+              <td>@c.City</td>
+              <td>@c.Country</td>
+              <td>@c.Phone</td>
+              <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
+              <td><a class="btn btn-info" href="/Customers/Update/@c.CustomerID">Modificar</a></td>
+          </tr>
+           }
+        -->
+        <tr>
+          <th scope="row">TOMY</th>
+          <td>Tomy</td>
+          <td>Company</td>
+          <td>Sanlo</td>
+          <td>Arg</td>
+          <td>123</td>
+          <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
+          <td><a class="btn btn-info" href="/Customers/Update/@c.CustomerID">Modificar</a></td>
+        </tr>
+        <tr>
+          <th scope="row">CAJA</th>
+          <td>La Caja</td>
+          <td>Box S.A.</td>
+          <td>Rosario</td>
+          <td>Arg</td>
+          <td>321</td>
+          <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
+          <td><a class="btn btn-info" href="/Customers/Update/@c.CustomerID">Modificar</a></td>
+        </tr>
+
+      </tbody>
+  </table>
+</div>
+
+<div class="last">
+  <button type="button" class="btn btn-success">Nuevo Cliente</button>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
