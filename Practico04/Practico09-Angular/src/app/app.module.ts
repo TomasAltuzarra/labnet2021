@@ -8,11 +8,12 @@ import {MatTableModule} from '@angular/material/table';
 import { FooterModule } from './components/shared-view/footer/footer.module';
 import { HeaderModule } from './components/shared-view/header/header.module';
 import { CustomersListModule } from './components/customers-list/customers-list.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

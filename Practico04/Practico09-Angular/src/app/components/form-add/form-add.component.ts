@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FormComponent } from '../form/form.component';
+import { Component, OnInit, Output, ViewChild, Input  } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -8,23 +9,39 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./form-add.component.css']
 })
 export class FormAddComponent {
+
+  @ViewChild(FormComponent) hijo: FormComponent;
+
   closeResult = '';
-  state = '';
+  @Input() state = '';
+
+  pID= '';
+  pName='';
+  pEmp='';
+  pCity='';
+  pCountry='';
+  pPhone='';
 
   constructor(private modalService: NgbModal) {}
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+  openNew(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+    this.pID='ID';
+    this.pName='Nombre y Apellido';
+    this.pEmp='Empresa';
+    this.pCity='Ciudad de referencia';
+    this.pCountry='Pais';
+    this.pPhone='Telefono';
   }
 
-  /*private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }*/
+  openUpdate(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+    this.pID='AAAA';
+    this.pName='Nombre y Apellido CARGADO';
+    this.pEmp='Empresa CARGADO';
+    this.pCity='Ciudad de referencia CARGADO';
+    this.pCountry='Pais CARGADO';
+    this.pPhone='Telefono CARGADO';
+  }
 }
 

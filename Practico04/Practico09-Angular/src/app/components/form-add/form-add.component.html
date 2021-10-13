@@ -1,41 +1,3 @@
-<!--
-<form>
-  <div class="table table-responsive">
-      <table>
-          <thead>
-              <tr>
-                  <th scope="col"></th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <input class="form-control mr-sm-2" type="search" placeholder="ID" aria-label="Search">
-              </tr>
-              <tr>
-                  <input class="form-control mr-sm-2" type="search" placeholder="Empresa" aria-label="Search">
-              </tr>
-              <tr>
-                  <input class="form-control mr-sm-2" type="search" placeholder="Nombre" aria-label="Search">
-              </tr>
-              <tr>
-                  <input class="form-control mr-sm-2" type="search" placeholder="Ciudad" aria-label="Search">
-              </tr>
-              <tr>
-                  <input class="form-control mr-sm-2" type="search" placeholder="Pais" aria-label="Search">
-              </tr>
-              <tr>
-                  <input class="form-control mr-sm-2" type="search" placeholder="Telefono" aria-label="Search">
-              </tr>
-          </tbody>
-      </table>
-  </div>
-  <div class="last">
-    <button type="button" class="btn btn-success">Guardar</button>
-    <button type="button" class="btn btn-danger">Cancelar</button>
-  </div>
-</form>
--->
-
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">{{state}}</h4>
@@ -44,15 +6,22 @@
     </button>
   </div>
   <div class="modal-body">
-    <app-form></app-form>
+    <app-form
+    [iID]="pID"
+    [iName]="pName"
+    [iEmp]="pEmp"
+    [iCity]="pCity"
+    [iCountry]="pCountry"
+    [iPhone]="pPhone"
+    [state]="state"
+    ></app-form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)="modal.close()">Guardar</button>
-    <button type="button" class="btn btn-danger" (click)="modal.close()">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
   </div>
 </ng-template>
 
 <div class="last">
-  <button class="btn btn-lg btn-outline-success and boton" (click)="open(content); state='Nuevo Cliente'" >Nuevo Cliente</button>
-  <button class="btn btn-lg btn-outline-primary and boton" (click)="open(content); state='Modificar Cliente'">Modificar Cliente</button>
+  <button class="btn btn-lg btn-outline-success and boton" (click)="openNew(content); state='Nuevo Cliente'" >Nuevo Cliente</button>
+  <button class="btn btn-lg btn-outline-primary and boton" (click)="openUpdate(content); state='Modificar Cliente'">Modificar Cliente</button>
 </div>

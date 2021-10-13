@@ -1,3 +1,25 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{state}}</h4>
+    <button type="button" class="btn btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-form
+    [iID]="pID"
+    [iName]="pName"
+    [iEmp]="pEmp"
+    [iCity]="pCity"
+    [iCountry]="pCountry"
+    [iPhone]="pPhone"
+    [state]="state"
+    ></app-form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+  </div>
+</ng-template>
+
 <div class="last">
   <h1>Clientes</h1>
 </div>
@@ -27,14 +49,7 @@
           @foreach (var c in Model)
            {
           <tr>
-              <th scope="row">@c.CustomerID</th>
-              <td>@c.ContactName</td>
-              <td>@c.CompanyName</td>
-              <td>@c.City</td>
-              <td>@c.Country</td>
-              <td>@c.Phone</td>
-              <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
-              <td><a class="btn btn-info" href="/Customers/Update/@c.CustomerID">Modificar</a></td>
+             fila
           </tr>
            }
         -->
@@ -45,8 +60,8 @@
           <td>Sanlo</td>
           <td>Arg</td>
           <td>123</td>
-          <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
-          <td><a class="btn btn-info" href="/Customers/Update/@c.CustomerID">Modificar</a></td>
+          <td><a class="btn btn-danger" (click)="deleteRow()">X</a></td>
+          <td><a class="btn btn-info" (click)="openUpdate(content); state='Modificar Cliente'">Modificar</a></td>
         </tr>
         <tr>
           <th scope="row">CAJA</th>
@@ -55,13 +70,19 @@
           <td>Rosario</td>
           <td>Arg</td>
           <td>321</td>
-          <td><a class="btn btn-danger" href="/Customers/Delete/@c.CustomerID">X</a></td>
+          <td><a class="btn btn-danger">X</a></td>
           <td><a class="btn btn-info">Modificar</a></td>
         </tr>
 
       </tbody>
   </table>
 </div>
-<app-form-add></app-form-add>
+<div class="last">
+  <button class="btn btn-lg btn-outline-success and boton" (click)="openNew(content); state='Nuevo Cliente'" >Nuevo Cliente</button>
+  <button class="btn btn-lg btn-outline-primary and boton" (click)="openUpdate(content); state='Modificar Cliente'">Modificar Cliente</button>
+</div>
 
+<!--
+<app-form-add></app-form-add> OFF
+-->
 

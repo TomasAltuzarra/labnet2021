@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CustomersListComponent} from './customers-list.component';
-import {FormAddModule} from './../form-add/form-add.module';
+import {FormModule} from './../form/form.module';
 
 
 
@@ -9,7 +9,7 @@ import {FormAddModule} from './../form-add/form-add.module';
   declarations: [CustomersListComponent],
   imports: [
     CommonModule,
-    FormAddModule
+    FormModule
   ],
   exports: [CustomersListComponent]
 })

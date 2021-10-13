@@ -21,3 +21,12 @@
 .last{
   padding-left: 3%;
 }
+
+.modal-body{
+  align-self: center;
+}
+
+.boton{
+  margin: 1%;
+  align-self: center;
+}

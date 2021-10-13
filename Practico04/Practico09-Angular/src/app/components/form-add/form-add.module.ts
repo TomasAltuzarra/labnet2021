@@ -12,4 +12,7 @@ import { FormModule } from '../form/form.module';
   ],
   exports: [FormAddComponent]
 })
-export class FormAddModule { }
+export class FormAddModule {
+
+
+ }

@@ -1,26 +1,35 @@
-<form>
+<form [formGroup]="form" (ngSubmit)=onSubmit>
   <tr>
-    <th>ID: </th>
-    <input class="form-control mr-sm-2 and input" type="search" placeholder="{{pID}}" aria-label="Search">
+    <th class="layout">ID: </th>
+    <input *ngIf="state=='Nuevo Cliente'" formControlName="cusID" class="form-control mr-sm-2 and input" type="search" placeholder="{{iID}}" aria-label="Search">
+    <th class="layout" *ngIf="state=='Modificar Cliente'">{{iID}}</th>
   </tr>
   <tr>
-    <th>Empresa: </th>
-    <input class="form-control mr-sm-2 and input" type="search" placeholder="{{pEmp}}" aria-label="Search">
+    <th class="layout">Empresa: </th>
+    <input formControlName="cusComp" class="form-control mr-sm-2 and input" type="search" placeholder="{{iEmp}}" aria-label="Search">
   </tr>
   <tr>
-    <th>Nombre: </th>
-    <input class="form-control mr-sm-2 and input" type="search" placeholder="{{pName}}" aria-label="Search">
+    <th class="layout">Nombre: </th>
+    <input formControlName="cusName" class="form-control mr-sm-2 and input" type="search" placeholder="{{iName}}" aria-label="Search">
   </tr>
   <tr>
-    <th>Ciudad: </th>
-    <input class="form-control mr-sm-2 and input" type="search" placeholder="{{pCity}}" aria-label="Search">
+    <th class="layout">Ciudad: </th>
+    <input formControlName="cusCity" class="form-control mr-sm-2 and input" type="search" placeholder="{{iCity}}" aria-label="Search">
   </tr>
   <tr>
-    <th>Pais: </th>
-    <input class="form-control mr-sm-2 and input" type="search" placeholder="{{pCountry}}" aria-label="Search">
+    <th class="layout">Pais: </th>
+    <input formControlName="cusCountry" class="form-control mr-sm-2 and input" type="search" placeholder="{{iCountry}}" aria-label="Search">
   </tr>
   <tr>
-    <th>Telefono: </th>
-    <input class="form-control mr-sm-2 and input" type="search" placeholder="{{pPhone}}" aria-label="Search">
+    <th class="layout">Telefono: </th>
+    <input formControlName="cusPhone" class="form-control mr-sm-2 and input" type="search" placeholder="{{iPhone}}" aria-label="Search">
   </tr>
+  <hr>
+  <!--  -->
+  <div>
+    <button type="submit" class="btn btn-success and boton" (click)="onSubmit()">Guardar</button>
+    <button type="button" class="btn btn-warning and boton" (click)="onClickLimpiar()">Reiniciar</button>
+  </div>
+
 </form>
+
