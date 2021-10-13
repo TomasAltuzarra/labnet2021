@@ -1,16 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-//import { ReactiveFormsModule } from '@angular/forms';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-form-add',
   templateUrl: './form-add.component.html',
   styleUrls: ['./form-add.component.css']
 })
-export class FormAddComponent implements OnInit {
+export class FormAddComponent {
+  closeResult = '';
+  state = '';
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {}
 
-  ngOnInit(): void {
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
   }
 
+  /*private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }*/
 }
+
