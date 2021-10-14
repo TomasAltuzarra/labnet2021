@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormAddComponent } from '../form-add/form-add.component';
 import { FormComponent } from '../form/form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { CustomerService } from 'src/app/services/customer.service';
 
 
 @Component({
@@ -9,6 +10,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './customers-list.component.html',
   styleUrls: ['./customers-list.component.css']
 })
+
 export class CustomersListComponent implements OnInit {
 
   ngOnInit(): void {
@@ -26,11 +28,11 @@ export class CustomersListComponent implements OnInit {
   pCountry='';
   pPhone='';
 
-  datos: Customer[] = [
+  /*datos: Customer[] = [
     new Customer(TOMY, 'Tomy', 'Hornero', 'SanLo', 'Argentina', '430012',),
     new Customer(TOPO, 'Topo', 'NFG', 'Rosario', 'Argentina', '123456',),
     new Customer(CAJA, 'La Caja', 'xD', 'Bunge', 'Argentina', '654321',),
-  ];
+  ];*/
 
   constructor(private modalService: NgbModal) {}
 
@@ -62,13 +64,4 @@ export class CustomersListComponent implements OnInit {
   }
 
 }
-  /*class Customer {
-    constructor(
-      public cID: string,
-      public cName: string,
-      public cCompany: string,
-      public cCity: string,
-      public cCountry: string,
-      public cPhone: string,
-    ) {}}*/
 
