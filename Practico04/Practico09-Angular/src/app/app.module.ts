@@ -1,3 +1,4 @@
+import { CustomerModule } from './components/customer/customer.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,13 +9,16 @@ import {MatTableModule} from '@angular/material/table';
 import { FooterModule } from './components/shared-view/footer/footer.module';
 import { HeaderModule } from './components/shared-view/header/header.module';
 import { CustomersListModule } from './components/customers-list/customers-list.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
+import {FormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +27,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterModule,
     HeaderModule,
     CustomersListModule,
+    MatTableModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    CustomerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

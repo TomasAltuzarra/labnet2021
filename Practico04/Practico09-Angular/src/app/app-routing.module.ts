@@ -1,10 +1,10 @@
-import { FormAddModule } from './components/form-add/form-add.module';
+import { FormModule } from './components/form/form.module';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [{
   path: 'nuevo',
-  component: FormAddModule,
+  component: FormModule,
 }];
 
 @NgModule({

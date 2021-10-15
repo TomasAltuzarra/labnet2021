@@ -1,11 +1,26 @@
+<!--
+-->
+
+<div class="last">
+  <h1>Clientes</h1>
+</div>
+
+<!--Buscar-->
+<form class="form-inline my-2 my-lg-0 and buscador">
+  <input class="form-control mr-sm-2" type="search" placeholder="Buscar cliente" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+
+<!-- -FORM ADD/UPDATE - -->
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{state}}</h4>
+    <h2 class="modal-title" id="modal-basic-title">{{state}}</h2>
     <button type="button" class="btn btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
     </button>
   </div>
   <div class="modal-body">
     <app-form
+    datos,
     [iID]="pID"
     [iName]="pName"
     [iEmp]="pEmp"
@@ -20,20 +35,10 @@
   </div>
 </ng-template>
 
-<div class="last">
-  <h1>Clientes</h1>
-</div>
-
-<!--Buscar-->
-<form class="form-inline my-2 my-lg-0 and buscador">
-  <input class="form-control mr-sm-2" type="search" placeholder="Buscar cliente" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-</form>
-
 <!--Listado-->
 <div class="table table-responsive">
   <h2>Listado de Clientes</h2>
-  <table class="table table-striped">
+  <table class="table table-striped" #table1>
       <thead>
           <tr>
               <th scope="col">ID Cliente</th>
@@ -45,44 +50,21 @@
           </tr>
       </thead>
       <tbody>
-        <!--
-          @foreach (var c in Model)
-           {
-          <tr>
-             fila
-          </tr>
-           }
-        -->
-        <tr>
-          <th scope="row">TOMY</th>
-          <td>Tomy</td>
-          <td>Company</td>
-          <td>Sanlo</td>
-          <td>Arg</td>
-          <td>123</td>
-          <td><a class="btn btn-danger" (click)="deleteRow()">X</a></td>
-          <td><a class="btn btn-info" (click)="openUpdate(content); state='Modificar Cliente'">Modificar</a></td>
+        <tr *ngFor="let item of datos">
+          <th scope="row">{{item.cID}}</th>
+          <td>{{item.cName}}</td>
+          <td>{{item.cCompany}}</td>
+          <td>{{item.cCity}}</td>
+          <td>{{item.cCountry}}</td>
+          <td>{{item.cPhone}}</td>
+          <td><a class="btn btn-danger" (click)="deleteRow(this.item)">X</a></td>
+          <td><a class="btn btn-info" (click)="openUpdate(content,this.item); state='Modificar Cliente'">Modificar</a></td>
         </tr>
-        <tr>
-          <th scope="row">CAJA</th>
-          <td>La Caja</td>
-          <td>Box S.A.</td>
-          <td>Rosario</td>
-          <td>Arg</td>
-          <td>321</td>
-          <td><a class="btn btn-danger">X</a></td>
-          <td><a class="btn btn-info">Modificar</a></td>
-        </tr>
-
       </tbody>
   </table>
 </div>
 <div class="last">
   <button class="btn btn-lg btn-outline-success and boton" (click)="openNew(content); state='Nuevo Cliente'" >Nuevo Cliente</button>
-  <button class="btn btn-lg btn-outline-primary and boton" (click)="openUpdate(content); state='Modificar Cliente'">Modificar Cliente</button>
 </div>
 
-<!--
-<app-form-add></app-form-add> OFF
--->
 

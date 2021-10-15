@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { FormAddComponent } from '../form-add/form-add.component';
 import { FormComponent } from '../form/form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { CustomerService } from 'src/app/services/customer.service';
+import {Customer} from '../customer/customer.component';
+import { MatTable } from '@angular/material/table';
 
 
 @Component({
@@ -16,23 +16,28 @@ export class CustomersListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mCustomer: Customer;
+
+  columns: string[] = ['ID', 'Nombre', 'Empresa', 'Ciudad','Pais','Telefono'];
+
+  @ViewChild(MatTable) tabla1: MatTable<Customer>;
   @ViewChild(FormComponent) hijo: FormComponent;
 
   closeResult = '';
   @Input() state = '';
+  datos: Customer[] = [ //GetAll
+    {cID:"TOMY",cName:"Tomy",cCompany:"Company",cCity:"Sanlo",cCountry:"Arg",cPhone:"123"},
+    {cID:"CAJA",cName:"La Caja",cCompany:"Box S.A.",cCity:"Rosario",cCountry:"Arg",cPhone:"321"},
+    {cID:"TOPO",cName:"El Topo",cCompany:"NFG",cCity:"Rosario",cCountry:"Arg",cPhone:"321"}
+  ];
 
+  //Add-Update (Modal)
   pID= '';
   pName='';
   pEmp='';
   pCity='';
   pCountry='';
   pPhone='';
-
-  /*datos: Customer[] = [
-    new Customer(TOMY, 'Tomy', 'Hornero', 'SanLo', 'Argentina', '430012',),
-    new Customer(TOPO, 'Topo', 'NFG', 'Rosario', 'Argentina', '123456',),
-    new Customer(CAJA, 'La Caja', 'xD', 'Bunge', 'Argentina', '654321',),
-  ];*/
 
   constructor(private modalService: NgbModal) {}
 
@@ -46,22 +51,45 @@ export class CustomersListComponent implements OnInit {
     this.pPhone='Telefono';
   }
 
-  openUpdate(content) {
+  openUpdate(content,mCustomer) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
-    this.pID='AAAA';
-    this.pName='Nombre y Apellido CARGADO';
-    this.pEmp='Empresa CARGADO';
-    this.pCity='Ciudad de referencia CARGADO';
-    this.pCountry='Pais CARGADO';
-    this.pPhone='Telefono CARGADO';
+    this.pID=mCustomer.cID;
+    this.pName=mCustomer.cName;
+    this.pEmp=mCustomer.cCompany;
+    this.pCity=mCustomer.cCity;
+    this.pCountry=mCustomer.cCountry;
+    this.pPhone=mCustomer.cPhone;
   }
 
-  deleteRow(){
-    /*if (confirm('Realmente quiere borrarlo?')) {
-    this.customers.splice(cod, 1);
-    this.tabla1.renderRows();*/
+  //Tabla
+  borrarFila(cod: number) {
+    if (confirm("Realmente quiere borrarlo?")) {
+      this.datos.splice(cod, 1);
+      this.tabla1.renderRows();
+    }
+  }
+
+  customerselect: Customer = new Customer("","","","","","");
+
+  agregar() {
+    this.datos.push(new Customer(
+      this.customerselect.cID,
+      this.customerselect.cName,
+      this.customerselect.cCompany,
+      this.customerselect.cCity,
+      this.customerselect.cCountry,
+      this.customerselect.cPhone));
+    this.tabla1.renderRows();
+    this.customerselect = new Customer("","","","","","");
+    //this.empList.push(customObj);
+  }
+
+  deleteRow(mCustomer){
+    if (confirm('Realmente quiere borrarlo?')) {
+    this.datos.splice(mCustomer.cID, 1);
+    //this.tabla1.renderRows();
     console.log("Elimina2");
   }
-
+  }
 }
 

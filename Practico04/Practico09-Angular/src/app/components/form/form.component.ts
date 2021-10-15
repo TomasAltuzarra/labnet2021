@@ -1,6 +1,6 @@
-import { FormAddComponent } from './../form-add/form-add.component';
-import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import {Customer} from '../customer/customer.component';
 
 @Component({
   selector: 'app-form',
@@ -27,7 +27,6 @@ export class FormComponent implements OnInit {
   get paisCtrl(): AbstractControl {
     return this.form.get('cusCountry');
   }
-  //@ViewChild(FormAddComponent) hijo: FormAddComponent;
 
   //Recibiria estos datos y con una condicion para saber si modificar o agregar uno nuevo
   @Input() iID: string;
@@ -37,6 +36,7 @@ export class FormComponent implements OnInit {
   @Input() iCountry: string;
   @Input() iPhone: string;
   @Input() state: string;
+  @Input() datos: Customer[];
 
   @Output() cusID: string;
   @Output() cusComp: string;
@@ -46,6 +46,8 @@ export class FormComponent implements OnInit {
   @Output() cusPhone: string;
 
   form: FormGroup;
+
+  //@Output() nuevo= new EventEmitter<Customer>();
 
   constructor(private readonly fb: FormBuilder) { }
 
@@ -60,9 +62,8 @@ export class FormComponent implements OnInit {
     });
   }
 
-  onSubmit():void {
+  onSubmit(){
     console.log(this.form.value);
-
   }
 
   onClickLimpiar():void{
@@ -85,5 +86,4 @@ export class FormComponent implements OnInit {
       this.paisCtrl.setValue('');
     }
   }
-
 }
