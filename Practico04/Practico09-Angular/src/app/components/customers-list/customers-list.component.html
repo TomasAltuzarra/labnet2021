@@ -49,14 +49,14 @@
           </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of datos">
-          <th scope="row">{{item.cID}}</th>
-          <td>{{item.cName}}</td>
-          <td>{{item.cCompany}}</td>
-          <td>{{item.cCity}}</td>
-          <td>{{item.cCountry}}</td>
-          <td>{{item.cPhone}}</td>
-          <td><a class="btn btn-danger" (click)="deleteRow(this.item)">X</a></td>
+        <tr *ngFor="let item of listCustomers">
+          <th scope="row">{{item.CustomerID}}</th>
+          <td>{{item.ContactName}}</td>
+          <td>{{item.CompanyName}}</td>
+          <td>{{item.City}}</td>
+          <td>{{item.Country}}</td>
+          <td>{{item.Phone}}</td>
+          <td><a class="btn btn-danger" (click)="deleteRow(this.item.CustomerID)">X</a></td>
           <td><a class="btn btn-info" (click)="openUpdate(content,this.item); state='Modificar Cliente'">Modificar</a></td>
         </tr>
       </tbody>

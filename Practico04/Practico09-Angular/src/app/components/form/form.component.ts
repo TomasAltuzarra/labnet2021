@@ -51,7 +51,7 @@ export class FormComponent implements OnInit {
 
   //@Output() nuevo= new EventEmitter<Customer>();
 
-  constructor(private readonly fb: FormBuilder, private customerService :CustomersListService) { }
+  constructor(private readonly fb: FormBuilder, private customerService :CustomersListService, private customersService :CustomersListService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({

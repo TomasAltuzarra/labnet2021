@@ -20,7 +20,7 @@ export class CustomersListComponent implements OnInit {
     this.getAll();
   }
 
-  mCustomer: Customer;
+  mCustomer: Customers;
 
   columns: string[] = ['ID', 'Nombre', 'Empresa', 'Ciudad','Pais','Telefono'];
 
@@ -58,12 +58,12 @@ export class CustomersListComponent implements OnInit {
 
   openUpdate(content,mCustomer) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
-    this.pID=mCustomer.cID;
-    this.pName=mCustomer.cName;
-    this.pEmp=mCustomer.cCompany;
-    this.pCity=mCustomer.cCity;
-    this.pCountry=mCustomer.cCountry;
-    this.pPhone=mCustomer.cPhone;
+    this.pID=mCustomer.CustomerID;
+    this.pName=mCustomer.ContactName;
+    this.pEmp=mCustomer.CompanyName;
+    this.pCity=mCustomer.City;
+    this.pCountry=mCustomer.Country;
+    this.pPhone=mCustomer.Phone;
   }
 
   //Tabla
@@ -82,12 +82,10 @@ export class CustomersListComponent implements OnInit {
     //this.empList.push(customObj);
   }
 
-  deleteRow(customer){
+  deleteRow(id){
     if (confirm('¿Realmente desea borrarlo?'))
     {
-      this.datos.splice(customer, 1);
-      //this.tabla1.renderRows();
-      //console.log("Elimina2");
+      this.customersService.deleteCustomer(id);
     }
   }
 

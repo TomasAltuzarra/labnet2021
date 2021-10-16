@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiCustomers: 'https://localhost:44346/api/'
+  apiCustomers:'https://localhost:44346/api/',
+  //'Access-Control-Allow-Origin'
 };
 
 /*
