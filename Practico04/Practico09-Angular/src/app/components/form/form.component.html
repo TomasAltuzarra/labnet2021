@@ -27,7 +27,8 @@
   <hr>
   <!--  -->
   <div>
-    <button type="submit" class="btn btn-success and boton" (click)="onSubmit();onClickLimpiar();">Guardar</button>
+    <button *ngIf="state=='Nuevo Cliente'" type="submit" class="btn btn-success and boton" (click)="onSubmit();onClickLimpiar();">Guardar</button>
+    <button *ngIf="state=='Modificar Cliente'" type="submit" class="btn btn-success and boton" (click)="onSubmit()">Modificar</button>
     <button type="button" class="btn btn-warning and boton" (click)="onClickLimpiar()">Reiniciar</button>
   </div>
 

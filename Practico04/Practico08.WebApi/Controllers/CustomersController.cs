@@ -8,10 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 //using System.Web.Mvc;
 
 namespace Practico08.WebApi.Controllers
 {
+    //[EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
     public class CustomersController : ApiController
     {
         readonly CustomersLogic logic = new CustomersLogic();
@@ -129,20 +131,17 @@ namespace Practico08.WebApi.Controllers
 
         //Modify Customer
         [HttpPut]
-        public IHttpActionResult UpdateCustomer(string id)
+        public IHttpActionResult UpdateCustomer(CustomerDto customerEntity)
         {
             try
             {
-                CustomerDto customer = logic.GetOne(id);
-                var customerEntity = new CustomerDto()
-                {
-                    CustomerID = (customer.CustomerID).ToUpper(),
-                    CompanyName = customer.CompanyName,
-                    ContactName = customer.ContactName,
-                    City = customer.City,
-                    Country = customer.Country,
-                    Phone = customer.Phone
-                };
+                CustomerDto customer = logic.GetOne(customerEntity.CustomerID);
+                /*customerEntity.CustomerID = (customer.CustomerID).ToUpper();
+                customerEntity.CompanyName = customer.CompanyName;
+                customerEntity.ContactName = customer.ContactName;
+                customerEntity.City = customer.City;
+                customerEntity.Country = customer.Country;
+                customerEntity.Phone = customer.Phone;*/
                 logic.Update(customerEntity);
                 return Ok(customer);
             }
