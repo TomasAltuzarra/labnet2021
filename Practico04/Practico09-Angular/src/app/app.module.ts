@@ -13,6 +13,7 @@ import { CustomersListModule } from './components/customers-list/customers-list.
 import {FormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    CustomerModule
+    CustomerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

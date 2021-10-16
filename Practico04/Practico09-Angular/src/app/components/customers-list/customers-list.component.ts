@@ -1,8 +1,10 @@
+import { CustomersListService } from 'src/app/services/customers-list.service';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormComponent } from '../form/form.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Customer} from '../customer/customer.component';
 import { MatTable } from '@angular/material/table';
+import {Customers} from '../modules/customer';
 
 
 @Component({
@@ -13,7 +15,9 @@ import { MatTable } from '@angular/material/table';
 
 export class CustomersListComponent implements OnInit {
 
+  public listCustomers: Array<Customers>;
   ngOnInit(): void {
+    this.getAll();
   }
 
   mCustomer: Customer;
@@ -39,7 +43,8 @@ export class CustomersListComponent implements OnInit {
   pCountry='';
   pPhone='';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private customerService: CustomersListService, private customersService :CustomersListService
+    ) {}
 
   openNew(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
@@ -62,13 +67,6 @@ export class CustomersListComponent implements OnInit {
   }
 
   //Tabla
-  borrarFila(cod: number) {
-    if (confirm("Realmente quiere borrarlo?")) {
-      this.datos.splice(cod, 1);
-      this.tabla1.renderRows();
-    }
-  }
-
   customerselect: Customer = new Customer("","","","","","");
 
   agregar() {
@@ -84,12 +82,20 @@ export class CustomersListComponent implements OnInit {
     //this.empList.push(customObj);
   }
 
-  deleteRow(mCustomer){
-    if (confirm('Realmente quiere borrarlo?')) {
-    this.datos.splice(mCustomer.cID, 1);
-    //this.tabla1.renderRows();
-    console.log("Elimina2");
+  deleteRow(customer){
+    if (confirm('¿Realmente desea borrarlo?'))
+    {
+      this.datos.splice(customer, 1);
+      //this.tabla1.renderRows();
+      //console.log("Elimina2");
+    }
   }
+
+  getAll(){
+    this.customersService.getAllCustomers().subscribe(res=>{
+        this.listCustomers=res;
+        console.log(this.listCustomers);
+    });
   }
 }
 

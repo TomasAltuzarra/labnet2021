@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { CustomersListService } from 'src/app/services/customers-list.service';
+import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import {Customer} from '../customer/customer.component';
+import {Customers} from '../modules/customer';
 
 @Component({
   selector: 'app-form',
@@ -49,7 +51,7 @@ export class FormComponent implements OnInit {
 
   //@Output() nuevo= new EventEmitter<Customer>();
 
-  constructor(private readonly fb: FormBuilder) { }
+  constructor(private readonly fb: FormBuilder, private customerService :CustomersListService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -63,7 +65,17 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.form.value);
+    var cus= new Customers();
+      cus.cID = this.form.get('cusID').value;
+      cus.cName = this.form.get('cusName').value;
+      cus.cCompany = this.form.get('cusComp').value;
+      cus.cCity = this.form.get('cusCity').value;
+      cus.cCountry = this.form.get('cusCountry').value;
+      cus.cPhone = this.form.get('cusPhone').value;
+    this.customerService.newCustomer(cus).subscribe(res=> {
+      this.form.reset();
+      console.log('andó');
+      });
   }
 
   onClickLimpiar():void{

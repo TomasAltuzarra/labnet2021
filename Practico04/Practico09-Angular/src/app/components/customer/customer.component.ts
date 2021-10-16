@@ -19,7 +19,7 @@ export class CustomerComponent{
     {cID:"TOPO",cName:"El Topo",cCompany:"NFG",cCity:"Rosario",cCountry:"Arg",cPhone:"321"}
   ];*/
 
-  //customerselect: Customer = new Customer("","","","","","");
+  customerselect: Customer = new Customer("","","","","","");
 
   //@ViewChild(MatTable) tabla1: MatTable<Customer>;
 
